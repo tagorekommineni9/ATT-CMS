@@ -21,7 +21,6 @@ public class UserLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-;
 
         userRegisterQuestion = findViewById(R.id.userRegisterQuestion);
         staffLoginQuestion = findViewById(R.id.staffLoginQuestion);
