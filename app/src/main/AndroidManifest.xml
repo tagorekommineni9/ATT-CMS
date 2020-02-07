@@ -15,19 +15,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".StaffLogin">
 
         </activity>
         <activity android:name=".UserRegister"></activity>
-        <activity android:name=".UserLogin">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".UserLogin" />
     </application>
 
 </manifest>

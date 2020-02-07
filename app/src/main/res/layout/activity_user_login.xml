@@ -49,7 +49,7 @@
             android:enabled="false"/>
 
         <TextView
-            android:id="@+id/registerQuestion"
+            android:id="@+id/userRegisterQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="New here ?  Register"
@@ -63,7 +63,7 @@
             android:background="@color/darkgray"/>
 
         <TextView
-            android:id="@+id/adminLoginQuestion"
+            android:id="@+id/staffLoginQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
