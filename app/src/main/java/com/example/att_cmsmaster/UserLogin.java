@@ -23,11 +23,19 @@ public class UserLogin extends AppCompatActivity {
         userRegisterQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(v.getContext(),UserRegister.class);
-                startActivity(registerIntent);
+                Intent registerQuesIntent = new Intent(v.getContext(),UserRegister.class);
+                startActivity(registerQuesIntent);
             }
         });
 
-        
+        staffLoginQuestion .setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent staffLoginQuesIntent = new Intent(getApplicationContext(),StaffLogin.class);
+                startActivity(staffLoginQuesIntent);
+            }
+        });
+
+
     }
 }
