@@ -23,6 +23,8 @@ public class UserRegister extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_register);
 
+        setTitle("User Registration");
+
         fullname = findViewById(R.id.fullname);
         email = findViewById(R.id.email);
         phone = findViewById(R.id.phone);

@@ -10,8 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class UserLogin extends AppCompatActivity {
-
-
+    EditText email;
+    EditText password;
+    Button loginbtn;
 
     TextView userRegisterQuestion;
     TextView staffLoginQuestion;
@@ -20,7 +21,11 @@ public class UserLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
+        setTitle("User Login");
 
+        email= findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        loginbtn = findViewById(R.id.loginButton);
 
         userRegisterQuestion = findViewById(R.id.userRegisterQuestion);
         staffLoginQuestion = findViewById(R.id.staffLoginQuestion);
