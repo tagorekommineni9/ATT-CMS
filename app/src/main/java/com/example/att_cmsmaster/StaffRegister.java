@@ -27,6 +27,8 @@ public class StaffRegister extends AppCompatActivity {
 
         //Collaboration Test - Tanya
 
+        setTitle("Staff Registration");
+
         staffId = findViewById(R.id.staff_id);
         fullname = findViewById(R.id.fullname);
         email = findViewById(R.id.email);

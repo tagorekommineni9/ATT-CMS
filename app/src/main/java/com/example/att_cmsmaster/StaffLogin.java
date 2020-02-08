@@ -21,6 +21,8 @@ public class StaffLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_login);
 
+        setTitle("Staff Login");
+
         adminID = findViewById(R.id.adminID);
         adminPassword = findViewById(R.id.adminPass);
 
