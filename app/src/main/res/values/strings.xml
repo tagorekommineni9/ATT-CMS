@@ -4,4 +4,9 @@
     <string name="ProfileSettings_text">Edit your profile settings</string>
     <string name="complaintHistory_text">View all your complaints </string>
     <string name="makeComplaint_text">Make your complaints here</string>
+
+    <string name="yourCurrentPassword">Current Password</string>
+    <string name="yourOldEmail">Your Old Email</string>
+    <string name="enterNewEmail">Enter New Email</string>
+    <string name="confirmNewEmail">Confirm New Email</string>
 </resources>
