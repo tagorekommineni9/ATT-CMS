@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ATT-CMS master</string>
+
+    <string name="ProfileSettings_text">Edit your profile settings</string>
+    <string name="complaintHistory_text">View all your complaints </string>
+    <string name="makeComplaint_text">Make your complaints here</string>
 </resources>

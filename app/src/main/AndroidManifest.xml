@@ -9,17 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StaffRegister">
-
-        </activity>
-        <activity android:name=".StaffLogin">
+        <activity android:name=".UserDashboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserRegister"></activity>
+        <activity android:name=".StaffRegister"></activity>
+        <activity android:name=".StaffLogin">
+
+        </activity>
+        <activity android:name=".UserRegister" />
         <activity android:name=".UserLogin" />
     </application>
 
