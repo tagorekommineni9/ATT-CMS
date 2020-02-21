@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "522051332580",
+    "firebase_url": "https://att-cms-master.firebaseio.com",
+    "project_id": "att-cms-master",
+    "storage_bucket": "att-cms-master.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522051332580:android:52748ebaeaebe24fe07ff1",
+        "android_client_info": {
+          "package_name": "com.example.att_cmsmaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522051332580-4b3ubmplfjfmvj331cprcigqm7bf7n0d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.att_cmsmaster",
+            "certificate_hash": "ad8526d1d55ee4e384553a504f7f99f254934563"
+          }
+        },
+        {
+          "client_id": "522051332580-0f0v3pkanmrrcg1mtai3ijtk95u4bm9q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwMaSfFZoah76hocHVu6vPmT5OCtGBdJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522051332580-0f0v3pkanmrrcg1mtai3ijtk95u4bm9q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

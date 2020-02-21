@@ -19,11 +19,21 @@
         <activity android:name=".EditProfile">
 
         </activity>
-        <activity android:name=".UserDashboard"></activity>
-        <activity android:name=".StaffRegister" />
-        <activity android:name=".StaffLogin" />
-        <activity android:name=".UserRegister" />
-        <activity android:name=".UserLogin" />
+        <activity android:name=".UserDashboard">
+
+        </activity>
+        <activity android:name=".StaffRegister">
+
+        </activity>
+        <activity android:name=".StaffLogin">
+
+        </activity>
+        <activity android:name=".UserRegister">
+
+        </activity>
+        <activity android:name=".UserLogin">
+
+        </activity>
     </application>
 
 </manifest>
