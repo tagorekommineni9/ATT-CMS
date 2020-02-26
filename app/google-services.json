@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "522051332580-vv362qgd64i4cndjfqggqir92fe0ep40.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.att_cmsmaster",
+            "certificate_hash": "5fe000908f847c85dd2c46d5f2c00a30f427f988"
+          }
+        },
+        {
           "client_id": "522051332580-4b3ubmplfjfmvj331cprcigqm7bf7n0d.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

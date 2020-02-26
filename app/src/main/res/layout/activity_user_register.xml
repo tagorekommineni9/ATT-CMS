@@ -90,6 +90,13 @@
             android:text="Already have an account? Login Here"
             android:textColor="@color/button"
             android:textAlignment="center"/>
+
+        <ProgressBar
+            android:id="@+id/progressBarUserRegister"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
     </LinearLayout>
 
 
