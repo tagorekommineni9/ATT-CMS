@@ -18,7 +18,7 @@
         android:layout_gravity="center">
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/userloginemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -28,7 +28,7 @@
             android:inputType="textEmailAddress"/>
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/userloginpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -39,7 +39,7 @@
             android:textColorHint="@color/darkgray"/>
 
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/userloginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
@@ -70,6 +70,13 @@
             android:text="Login as an admin"
             android:textColor="@color/green"
             android:textAlignment="center"/>
+
+        <ProgressBar
+            android:id="@+id/progressBarUserLogin"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
     </LinearLayout>
 
 </LinearLayout>
