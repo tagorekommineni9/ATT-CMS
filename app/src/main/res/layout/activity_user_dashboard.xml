@@ -48,6 +48,7 @@
                     android:background="@color/darkgray" />
 
                 <TextView
+                    android:id="@+id/textViewUserProfileSettings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/ProfileSettings_text"
@@ -138,6 +139,7 @@
                     android:background="@color/darkgray" />
 
                 <TextView
+                    android:id="@+id/textViewRegisterComplaint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/makeComplaint_text"

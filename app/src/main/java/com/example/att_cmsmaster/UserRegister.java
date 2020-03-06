@@ -14,11 +14,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
 
 public class UserRegister extends AppCompatActivity {
 
@@ -36,7 +42,7 @@ public class UserRegister extends AppCompatActivity {
     ProgressBar progressBar;
 
     //FirebaseDatabase database = FirebaseDatabase.getInstance();
-   // DatabaseReference myRef = database.getReference();
+    // DatabaseReference myRef = database.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +72,13 @@ public class UserRegister extends AppCompatActivity {
         userRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = memail.getText().toString().trim();
+              final  String email = memail.getText().toString().trim();
                 String password = mpassword.getText().toString().trim();
+
+                final   String phone = mphone.getText().toString().trim();
+                final   String fullname = mfullname.getText().toString().trim();
+
+
 
                 if(TextUtils.isEmpty(email)){
                     memail.setError("Email is Required!");
@@ -91,13 +102,33 @@ public class UserRegister extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
 
-                // regsitering the user in firebase
+                // registering the user in firebase
 
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(UserRegister.this," Yay! You are registered.",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(UserRegister.this," Yay! You are registered.",Toast.LENGTH_SHORT).show();
+                            FirebaseFirestore ffdb =  FirebaseFirestore.getInstance();
+
+                            HashMap<String, Object> user = new HashMap<>();
+                            user.put("fullname",fullname);
+                            user.put("email",email);
+                            user.put("phone",phone);
+
+                            ffdb.collection("Users")
+                                    .add(user)
+                                    .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                                            Toast.makeText(UserRegister.this,"Added",Toast.LENGTH_LONG).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(UserRegister.this,"Failed",Toast.LENGTH_LONG).show();
+                                }
+                            });
                             startActivity( new Intent(getApplicationContext(),UserDashboard.class));
                         }
                         else{
@@ -105,6 +136,8 @@ public class UserRegister extends AppCompatActivity {
                         }
                     }
                 });
+
+
             }
         });
 
@@ -121,7 +154,6 @@ public class UserRegister extends AppCompatActivity {
 
   /*  private void writeNewUser(String userId, String name, String email, String phone, String password) {
         User user = new User(name, email, phone, password);
-
         myRef.child("users").child(userId).setValue(user);
     }  */
 

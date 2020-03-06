@@ -55,7 +55,7 @@
                             android:textColor="@color/black"/>
 
                         <EditText
-                            android:id="@+id/location"
+                            android:id="@+id/editTextLocation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
@@ -94,17 +94,18 @@
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="16dp"
                             android:orientation="horizontal"
+                            android:id="@+id/radiogroupCategoryType"
                             android:weightSum="2">
 
                             <RadioButton
-                                android:id="@+id/rgcategory_elect"
+                                android:id="@+id/rgcategory_electricity"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Electricity"
                                 android:layout_weight="1"/>
 
                             <RadioButton
-                                android:id="@+id/rgcategory_gen"
+                                android:id="@+id/rgcategory_watersupply"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Water Supply"
@@ -144,6 +145,7 @@
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="16dp"
                             android:orientation="horizontal"
+                            android:id="@+id/radiogroupComplaintType"
                             android:weightSum="2">
 
                             <RadioButton
@@ -191,7 +193,7 @@
                             android:textColor="@color/black"/>
 
                         <EditText
-                            android:id="@+id/message"
+                            android:id="@+id/editTextMessage"
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
                             android:layout_marginBottom="8dp"
@@ -218,14 +220,15 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/btnSubmitComplaint"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="12dp"
                             android:text="Submit"
-                            android:textStyle="bold"
-                            android:textColor="@color/white"
+                            android:textAlignment="center"
                             android:textAllCaps="true"
-                            android:textAlignment="center"/>
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

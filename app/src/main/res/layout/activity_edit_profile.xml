@@ -40,7 +40,7 @@
             />
 
         <EditText
-            android:id="@+id/change_email"
+            android:id="@+id/new_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enterNewEmail"
@@ -80,7 +80,7 @@
             />
 
         <Button
-            android:id="@+id/btnChange"
+            android:id="@+id/btnChangeEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="change"
