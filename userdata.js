@@ -5,7 +5,7 @@ var bodyparser = require('body-parser');
 var con = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: 'VK_tagore9',
+  password: 'admin',
   database: 'userdata'
 });
 
@@ -52,7 +52,23 @@ app.post('/register/',(req,res,next)=>{
 });
 
 
+app.post('/registercomplaint/',(req,res,next)=>{
+    console.log("req.body", req.body)
+    var data = req.body;
+    var location = data.location;
+    var category = data.category;
+    var comptype = data.comptype;
+    var compdetails = data.compdetails;
+   
 
+con.query( 'INSERT INTO complaintdt (location,category,comptype,compdetails) VALUES (?,?,?,?);' ,[location,category,comptype,compdetails], function(err,result,fields){
+		res.json('Complaint filed successfully');
+			con.on('error',(err)=>{
+				console.log('[MySQL ERROR]',err);
+				res.json('Cannot regsiter complaint ');
+			});
+		});
+});
 
 
 
