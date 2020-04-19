@@ -19,15 +19,29 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.Map;
+
+import retrofit2.Retrofit;
 
 public class RegisterComplaint extends AppCompatActivity {
+
+
 
     EditText location,complaintDetails;
     RadioGroup categoryType, complaintType;
     TextView submitComplaint;
 
-    FirebaseAuth fAuth;
+    //FirebaseAuth fAuth;
 
     RadioButton radioButtonCategory, radioButtonComplaint;
 
@@ -43,7 +57,7 @@ public class RegisterComplaint extends AppCompatActivity {
         submitComplaint = findViewById(R.id.btnSubmitComplaint);
 
 
-        fAuth = FirebaseAuth.getInstance();
+    //    fAuth = FirebaseAuth.getInstance();
 
         submitComplaint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +74,11 @@ public class RegisterComplaint extends AppCompatActivity {
                 final String mcomplainttype = radioButtonComplaint.getText().toString();
                 final String mcomplaintdetails = complaintDetails.getText().toString();
 
-                FirebaseFirestore ffdb = FirebaseFirestore.getInstance();
+
+
+
+
+            /*    FirebaseFirestore ffdb = FirebaseFirestore.getInstance();
 
                 HashMap<String, Object> complaint= new HashMap<>();
                 complaint.put("location",mlocation);
@@ -81,7 +99,11 @@ public class RegisterComplaint extends AppCompatActivity {
                         Toast.makeText(RegisterComplaint.this,"Error occurred in filing your complaint",Toast.LENGTH_LONG).show();
                     }
                 });
+
+                */
             }
         });
     }
+
+
 }

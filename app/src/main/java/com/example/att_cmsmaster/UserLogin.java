@@ -18,12 +18,33 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
+
 public class UserLogin extends AppCompatActivity {
+
+
+
     EditText memail;
     EditText mpassword;
     Button mloginbtn;
 
-    FirebaseAuth fAuth;
+/*    FirebaseAuth fAuth; */
     ProgressBar mprogressbar;
 
     TextView userRegisterQuestion;
@@ -33,20 +54,26 @@ public class UserLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
+
+
+
         setTitle("User Login");
 
         memail= findViewById(R.id.userloginemail);
         mpassword = findViewById(R.id.userloginpassword);
-        fAuth = FirebaseAuth.getInstance();
+ /*       fAuth = FirebaseAuth.getInstance(); */
         mprogressbar = findViewById(R.id.progressBarUserLogin);
 
         mloginbtn = findViewById(R.id.userloginButton);
 
         userRegisterQuestion = findViewById(R.id.userRegisterQuestion);
         staffLoginQuestion = findViewById(R.id.staffLoginQuestion);
+        
 
 
-        mloginbtn.setOnClickListener(new View.OnClickListener() {
+
+
+     /*   mloginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String temail = memail.getText().toString().trim();
@@ -115,8 +142,12 @@ public class UserLogin extends AppCompatActivity {
                 Intent staffLoginQuesIntent = new Intent(getApplicationContext(),StaffLogin.class);
                 startActivity(staffLoginQuesIntent);
             }
-        });
+        }); */
 
 
     }
+
+
+
+
 }
