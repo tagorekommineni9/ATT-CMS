@@ -43,7 +43,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class UserRegister extends AppCompatActivity {
 
     private Retrofit retrofit;
-   // private RetrofitInterface retrofitInterface;
+    // private RetrofitInterface retrofitInterface;
     private String BASE_URL = "http://192.168.1.22:3033";
 
 
@@ -58,7 +58,7 @@ public class UserRegister extends AppCompatActivity {
 
     Button userRegister;
 
-/*    FirebaseAuth  fAuth; */
+    /*    FirebaseAuth  fAuth; */
     ProgressBar progressBar;
 
     //FirebaseDatabase database = FirebaseDatabase.getInstance();

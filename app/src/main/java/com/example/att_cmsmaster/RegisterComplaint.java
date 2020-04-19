@@ -35,7 +35,8 @@ import retrofit2.Retrofit;
 
 public class RegisterComplaint extends AppCompatActivity {
 
-
+    private Retrofit retrofit;
+    private String BASE_URL = "http://192.168.1.22:3033";
 
     EditText location,complaintDetails;
     RadioGroup categoryType, complaintType;
@@ -57,7 +58,7 @@ public class RegisterComplaint extends AppCompatActivity {
         submitComplaint = findViewById(R.id.btnSubmitComplaint);
 
 
-    //    fAuth = FirebaseAuth.getInstance();
+        // fAuth = FirebaseAuth.getInstance();
 
         submitComplaint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,36 +75,111 @@ public class RegisterComplaint extends AppCompatActivity {
                 final String mcomplainttype = radioButtonComplaint.getText().toString();
                 final String mcomplaintdetails = complaintDetails.getText().toString();
 
+                System.out.println("Inside on lcick e Calling ******** ");
+                final HashMap<String,String>map =new HashMap<>();
+                map.put("location",mlocation);
+                map.put("category",mcategorytype);
+                map.put("comptype",mcomplainttype);
+                map.put("compdetails",mcomplaintdetails);
+                //Network network = new Network();
+                //network.networkCall(map,"http://172.18.99.225:3012/register");
+                Thread thread = new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        try {
+
+                            try {
+
+                                System.out.println("Calling ******** ");
+                                URL url = new URL("http://192.168.1.22:3033/registercomplaint");
+                                HttpURLConnection client = null;
+                                client = (HttpURLConnection) url.openConnection();
+                                client.setRequestMethod("POST");
+                                client.setDoInput(true);
+                                client.setDoOutput(true);
+
+                                OutputStream os = client.getOutputStream();
+                                BufferedWriter writer = new BufferedWriter(
+                                        new OutputStreamWriter(os, "UTF-8"));
+                                writer.write(getPostDataString(map));
+
+                                writer.flush();
+                                writer.close();
+                                os.close();
+                                BufferedReader br;
+
+                                if (200 <= client.getResponseCode() && client.getResponseCode() <= 299) {
+                                    br = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
 
+                                } else {
+                                    br = new BufferedReader(new InputStreamReader(client.getErrorStream()));
+
+                                }
+                                String content = br.readLine();
 
 
-            /*    FirebaseFirestore ffdb = FirebaseFirestore.getInstance();
+                                int responseCode = client.getResponseCode();
 
-                HashMap<String, Object> complaint= new HashMap<>();
-                complaint.put("location",mlocation);
-                complaint.put("categorytype",mcategorytype);
-                complaint.put("complainttype",mcomplainttype);
-                complaint.put("complaintdetails",mcomplaintdetails);
-
-                ffdb.collection("Complaints")
-                        .add(complaint)
-                        .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DocumentReference> task) {
                                 Toast.makeText(RegisterComplaint.this,"Complaint filed successfully !",Toast.LENGTH_LONG).show();
                             }
-                        }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(RegisterComplaint.this,"Error occurred in filing your complaint",Toast.LENGTH_LONG).show();
+                            catch (Exception e){
+                                e.printStackTrace();
+                                System.out.println("ERROR ******** "+e.getMessage());
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
 
-                */
+                thread.start();
+
+
+
+ /* FirebaseFirestore ffdb = FirebaseFirestore.getInstance();
+
+ HashMap<String, Object> complaint= new HashMap<>();
+ complaint.put("location",mlocation);
+ complaint.put("categorytype",mcategorytype);
+ complaint.put("complainttype",mcomplainttype);
+ complaint.put("complaintdetails",mcomplaintdetails);
+
+ ffdb.collection("Complaints")
+ .add(complaint)
+ .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+ @Override
+ public void onComplete(@NonNull Task<DocumentReference> task) {
+ Toast.makeText(RegisterComplaint.this,"Complaint filed successfully !",Toast.LENGTH_LONG).show();
+ }
+ }).addOnFailureListener(new OnFailureListener() {
+ @Override
+ public void onFailure(@NonNull Exception e) {
+ Toast.makeText(RegisterComplaint.this,"Error occurred in filing your complaint",Toast.LENGTH_LONG).show();
+ }
+ });
+
+ */
             }
         });
     }
 
+    private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException {
+        StringBuilder feedback = new StringBuilder();
+        boolean first = true;
+        for(Map.Entry<String, String> entry : params.entrySet()){
+            if (first)
+                first = false;
+            else
+                feedback.append("&");
 
+            feedback.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+            feedback.append("=");
+            feedback.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+        }
+
+        return feedback.toString();
+    }
 }
