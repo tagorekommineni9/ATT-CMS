@@ -71,6 +71,34 @@ con.query( 'INSERT INTO complaintdt (location,category,comptype,compdetails) VAL
 });
 
 
+app.post('/login/',(req,res,next)=>{
+    var data = req.body;
+    var pass = data.pass;
+    var email = data.email;
+
+    con.query('SELECT * FROM userdt where email = ?',[email],function(err,result,fields){
+        con.on('error',(err)=>{
+            console.log('[MySQL ERROR]',err);
+        });
+        
+        if(result && result.length){
+
+
+            // result = [ RowDataPacket { id: 1, email: 'abc@abc.com', password: 'pass' } ]
+
+            if(pass == result[0].pass){
+                res.json('Valid user'); 
+            }else{
+                res.json('Invalid user');
+            }
+        }
+    });
+
+
+});
+
+
+
 
 // start node server
 app.listen(3033,() => {
