@@ -58,6 +58,7 @@ public class EditProfile extends AppCompatActivity {
                             Intent i =new Intent(EditProfile.this,UserDashboard.class);
                             i.putExtra("email",newEmail.getText().toString());
 
+                            Toast.makeText(EditProfile.this, "Your email updated successfully !", Toast.LENGTH_LONG).show();
                             startActivity(i);
                         }
                     }
