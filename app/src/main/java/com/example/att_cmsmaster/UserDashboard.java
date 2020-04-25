@@ -13,6 +13,8 @@ public class UserDashboard extends AppCompatActivity {
 
     TextView userProfileSettings,userRegisterComplaint ;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,18 +22,25 @@ public class UserDashboard extends AppCompatActivity {
 
         userProfileSettings = findViewById(R.id.textViewUserProfileSettings);
         userRegisterComplaint = findViewById(R.id.textViewRegisterComplaint);
-
+        final String email=getIntent().getStringExtra("email");
+        final String pass=getIntent().getStringExtra("pass");
         userProfileSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(UserDashboard.this,EditProfile.class));
+                Intent i = new Intent(UserDashboard.this,EditProfile.class);
+                i.putExtra("email",email);
+                i.putExtra("pass",pass);
+                startActivity(i);
             }
         });
 
         userRegisterComplaint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(UserDashboard.this,RegisterComplaint.class));
+                Intent i = new Intent(UserDashboard.this,RegisterComplaint.class);
+                i.putExtra("email",email);
+                i.putExtra("pass",pass);
+                startActivity(i);
             }
         });
     }

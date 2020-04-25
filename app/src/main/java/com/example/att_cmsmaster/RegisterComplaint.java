@@ -75,7 +75,7 @@ public class RegisterComplaint extends AppCompatActivity {
                 final String mcomplainttype = radioButtonComplaint.getText().toString();
                 final String mcomplaintdetails = complaintDetails.getText().toString();
 
-                System.out.println("Inside on lcick e Calling ******** ");
+                //System.out.println("Inside on lcick e Calling ******** ");
                 final HashMap<String,String>map =new HashMap<>();
                 map.put("location",mlocation);
                 map.put("category",mcategorytype);
@@ -91,7 +91,7 @@ public class RegisterComplaint extends AppCompatActivity {
 
                             try {
 
-                                System.out.println("Calling ******** ");
+                               // System.out.println("Calling ******** ");
                                 URL url = new URL("http://192.168.1.22:3033/registercomplaint");
                                 HttpURLConnection client = null;
                                 client = (HttpURLConnection) url.openConnection();
@@ -168,10 +168,10 @@ public class RegisterComplaint extends AppCompatActivity {
 
     private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException {
         StringBuilder feedback = new StringBuilder();
-        boolean first = true;
+        String f = "r";
         for(Map.Entry<String, String> entry : params.entrySet()){
-            if (first)
-                first = false;
+            if (f.equals("r"))
+                f = "fuyf";
             else
                 feedback.append("&");
 

@@ -3,6 +3,7 @@ package com.example.att_cmsmaster;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.HashMap;
 
 public class EditProfile extends AppCompatActivity {
 
@@ -36,9 +39,38 @@ public class EditProfile extends AppCompatActivity {
 
         changeEmail = findViewById(R.id.btnChangeEmail);
 
+
+        final String email=getIntent().getStringExtra("email");
+        final String pass=getIntent().getStringExtra("pass");
+
+
         changeEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (pass.equals(password.getText().toString())){
+                    if(email.equals(oldEmail.getText().toString())){
+                        if((newEmail.getText().toString()).equals(conformNewEmail.getText().toString())){
+                            final HashMap<String,String> map =new HashMap<>();
+                            map.put("pass",pass);
+                            map.put("email",newEmail.getText().toString());
+                            Network network = new Network();
+                            network.networkCall(map,"http://192.168.1.22:3033/updateprofile");
+                            Intent i =new Intent(EditProfile.this,UserDashboard.class);
+                            i.putExtra("email",newEmail.getText().toString());
+
+                            startActivity(i);
+                        }
+                    }
+                }
+            }
+        });
+/*
+        changeEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if (!(newEmail.getText().toString()).equals(conformNewEmail.getText().toString())) {
@@ -71,7 +103,7 @@ public class EditProfile extends AppCompatActivity {
                              } else {
                                  Toast.makeText(EditProfile.this, "Make sure you conform the new email !", Toast.LENGTH_LONG).show();
                              } */
-                        }
+            /*            }
                         else{
                             Toast.makeText(EditProfile.this," Error Authenticating ! " + task.getException().getMessage(),Toast.LENGTH_LONG).show();
                         }
@@ -102,8 +134,11 @@ public class EditProfile extends AppCompatActivity {
                     Toast.makeText(EditProfile.this,"Error occurred!" ,Toast.LENGTH_LONG).show();
                 } */
             }
-        });
-    }
+
+
+
+
+
 
 
 }

@@ -71,6 +71,13 @@ public class UserLogin extends AppCompatActivity {
         userRegisterQuestion = findViewById(R.id.userRegisterQuestion);
         staffLoginQuestion = findViewById(R.id.staffLoginQuestion);
 
+
+       //final String  email = getIntent().getStringExtra("email");
+       //final String pass = getIntent().getStringExtra("pass");
+
+
+
+
         mloginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,6 +131,7 @@ public class UserLogin extends AppCompatActivity {
                                     // Toast.makeText(MainActivity.this,"Login Success",Toast.LENGTH_LONG).show();
 
 
+                                    i.putExtra("pass",mpassword.getText().toString());
 
                                     startActivity(i);
                                 }
