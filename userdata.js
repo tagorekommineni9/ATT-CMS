@@ -98,6 +98,24 @@ app.post('/login/',(req,res,next)=>{
 });
 
 
+//Change Email
+app.post('/updateprofile/',(req,res,next)=>{
+	var data = req.body;
+	var pass = data.pass;
+	var email = data.email;
+
+
+	con.query( 'UPDATE userdata.userdt SET email = ? WHERE (pass = ?);' ,[email,pass], function(err,result,fields){
+		res.json('Sucess ');
+		console.log(email,pass);
+			con.on('error',(err)=>{
+				console.log('[MySQL ERROR]',err);
+				res.json('Could not update profile');
+			});
+		});
+});
+
+
 
 
 // start node server
